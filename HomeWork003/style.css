@@ -59,7 +59,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-
 }
 
 .image_photographer-box, .image_likes-box {
