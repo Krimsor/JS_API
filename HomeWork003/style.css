@@ -78,7 +78,7 @@ body {
 .image_likes-box {
     display: flex;
     flex-direction: row;
-    gap: 55px;
+    gap: 30px;
     align-items: center;
     padding: 20px;
 }
