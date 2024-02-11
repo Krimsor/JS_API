@@ -2,9 +2,11 @@ window.addEventListener('load', () => {
     renderPhoto();
 });
 
+const localStorageKey = "signUpTraining";
+const section = document.querySelector('.section');
 
 async function getRandomPhoto() {
-    const apiKey = 'BqccJsrfTmovmsaZAxmNYEOVUJZqOrOvHS0CDpNqO20';
+    const apiKey = 'Mf5PVdnBkpIB1rO23ECtxRFOAkG92WbphAU7ArE5r_0';
     try {
         const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${apiKey}`);
         const photo = await response.json();
@@ -41,8 +43,12 @@ counterButton.addEventListener('click', function () {
     increaseCounter();
 });
 
-function increaseCounter() {
+function increaseCounter() {    
     const likesCounter = document.querySelector('.image_likes-counter');
     const currentCounter = parseInt(likesCounter.textContent, 10);
-    likesCounter.textContent = currentCounter + 1;
+    likesCounter.textContent = currentCounter + 1;       
 }
+
+
+
+
