@@ -2,11 +2,11 @@ window.addEventListener('load', () => {
     renderPhoto();
 });
 
-const localStorageKey = "signUpTraining";
-const section = document.querySelector('.section');
+const localStorageKey = "LikeIt";
+const liked = document.querySelector('.liked');
 
 async function getRandomPhoto() {
-    const apiKey = 'Mf5PVdnBkpIB1rO23ECtxRFOAkG92WbphAU7ArE5r_0';
+    const apiKey = 'FgiaKClJGM8v0SCryDxer3Tj4mSly5kErtAflrhWkSY';
     try {
         const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${apiKey}`);
         const photo = await response.json();
@@ -16,7 +16,6 @@ async function getRandomPhoto() {
         return {};
     }
 }
-
 
 async function renderPhoto() {
     const photo = await getRandomPhoto();
@@ -38,17 +37,19 @@ async function renderPhoto() {
     }
 }
 
-const counterButton = document.querySelector('.image_likes-button');
+const counterButton = document.querySelector(".image_likes-button");
 counterButton.addEventListener('click', function () {
     increaseCounter();
 });
 
-function increaseCounter() {    
-    const likesCounter = document.querySelector('.image_likes-counter');
-    const currentCounter = parseInt(likesCounter.textContent, 10);
-    likesCounter.textContent = currentCounter + 1;       
+function increaseCounter() {
+    // Получаем кнопку "Лайка"
+    const likeCounter = document.querySelector(".image_likes-counter");
+    const currentCounter = parseInt(likeCounter.textContent)
+
+    // Начисляем лайки
+    likeCounter.textContent = currentCounter + 1;
+
+    // Сохраняем данные о количестве лайков
+    localStorage.setItem(localStorageKey, likeCounter.textContent);
 }
-
-
-
-
